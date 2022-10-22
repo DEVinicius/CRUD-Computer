@@ -6,6 +6,8 @@ package com.mycompany.loja.computador.screens;
 
 import com.mycompany.loja.computador.models.Computador;
 import com.mycompany.loja.computador.services.CreateComputerService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +22,7 @@ public class Insert extends javax.swing.JFrame {
     
     private CreateComputerService createComputadorService;
     
-    public Insert() {
+    public Insert() throws Exception {
         this.createComputadorService = new CreateComputerService();
         initComponents();
     }
@@ -150,7 +152,11 @@ public class Insert extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Insert().setVisible(true);
+                try {
+                    new Insert().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Insert.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

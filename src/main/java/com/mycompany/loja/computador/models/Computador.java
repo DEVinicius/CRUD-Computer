@@ -19,6 +19,12 @@ public class Computador {
         this.processador = processador;
     }
     
+    public Computador(int id, String processador, String hd) {
+        this.hd = hd;
+        this.processador = processador;
+        this.id = id;
+    }
+    
     public Computador() {
         
     }

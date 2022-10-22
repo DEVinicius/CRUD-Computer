@@ -5,6 +5,7 @@
 package com.mycompany.loja.computador.services;
 
 import com.mycompany.loja.computador.dao.ComputadorDAO;
+import com.mycompany.loja.computador.dao.ComputadorMySqlDAO;
 import com.mycompany.loja.computador.dao.IComputadorDAO;
 
 /**
@@ -14,8 +15,8 @@ import com.mycompany.loja.computador.dao.IComputadorDAO;
 public class DeleteComputerService {
     private IComputadorDAO computadorDAO;
     
-    public DeleteComputerService() {
-        this.computadorDAO = ComputadorDAO.getInstance();
+    public DeleteComputerService() throws Exception {
+        this.computadorDAO = ComputadorMySqlDAO.getInstance();
     }
     
     public boolean execute(int id) {

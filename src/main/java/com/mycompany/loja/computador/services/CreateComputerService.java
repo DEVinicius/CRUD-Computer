@@ -5,6 +5,7 @@
 package com.mycompany.loja.computador.services;
 
 import com.mycompany.loja.computador.dao.ComputadorDAO;
+import com.mycompany.loja.computador.dao.ComputadorMySqlDAO;
 import com.mycompany.loja.computador.dao.IComputadorDAO;
 import com.mycompany.loja.computador.models.Computador;
 
@@ -15,12 +16,13 @@ import com.mycompany.loja.computador.models.Computador;
 public class CreateComputerService {
     private IComputadorDAO computadorDAO;
     
-    public CreateComputerService() {
-        this.computadorDAO = ComputadorDAO.getInstance();
+    public CreateComputerService() throws Exception {
+        this.computadorDAO = ComputadorMySqlDAO.getInstance();
     }
     
     public Computador execute(String processador, String hd) {
         Computador computadorReq = new Computador(processador, hd);
+        
         
         Computador computador = this.computadorDAO.create(computadorReq);
         

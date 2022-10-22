@@ -5,6 +5,7 @@
 package com.mycompany.loja.computador.services;
 
 import com.mycompany.loja.computador.dao.ComputadorDAO;
+import com.mycompany.loja.computador.dao.ComputadorMySqlDAO;
 import com.mycompany.loja.computador.dao.IComputadorDAO;
 import com.mycompany.loja.computador.models.Computador;
 import java.util.List;
@@ -16,8 +17,8 @@ import java.util.List;
 public class ListComputersByProcessadorService {
     private IComputadorDAO computadorDAO;
     
-    public ListComputersByProcessadorService() {
-        this.computadorDAO = ComputadorDAO.getInstance();
+    public ListComputersByProcessadorService() throws Exception {
+        this.computadorDAO = ComputadorMySqlDAO.getInstance();
     }
     
     public List<Computador> execute(String processador) {
