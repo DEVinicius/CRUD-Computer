@@ -1,0 +1,14 @@
+version: '3.7'
+services: 
+    database:
+        image: mysql
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        ports:
+          - '3306:3306'
+        volumes:
+          - './.docker/data:/var/lib/mysql'
+        environment:
+          - MYSQL_ROOT_PASSWORD= root
+          - MYSQL_USER=root
+          - MYSQL_DATABASE=lojainformatica

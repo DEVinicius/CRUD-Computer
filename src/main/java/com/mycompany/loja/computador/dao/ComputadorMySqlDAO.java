@@ -12,6 +12,20 @@ import java.util.List;
  * @author vinicius.oliveira
  */
 public class ComputadorMySqlDAO implements IComputadorDAO{
+    
+    private static ComputadorMySqlDAO instance;
+    
+    private ComputadorMySqlDAO() {
+        
+    }
+    
+    public static ComputadorMySqlDAO getInstance() {
+        if(instance == null ) {
+            return new ComputadorMySqlDAO();
+        }
+        
+        return instance;
+    }
 
     @Override
     public Computador create(Computador computador) {
