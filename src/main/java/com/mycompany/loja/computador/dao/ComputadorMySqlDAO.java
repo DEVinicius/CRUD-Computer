@@ -148,7 +148,8 @@ public class ComputadorMySqlDAO implements IComputadorDAO{
     @Override
     public Computador update(Computador computador) {
         try {
-            PreparedStatement instrucaoSQL = conexao.prepareStatement("UPDATE computador SET (marca, processador, hd) VALUES(?, ?, ?) WHERE id = ?");
+            System.out.println(computador.getId() + " DID");
+            PreparedStatement instrucaoSQL = conexao.prepareStatement("UPDATE computador SET marca = ?, processador = ?, hd = ? WHERE id = ?");
         
             instrucaoSQL.setString(1, computador.getMarca());
             instrucaoSQL.setString(2, computador.getProcessador());
@@ -159,6 +160,7 @@ public class ComputadorMySqlDAO implements IComputadorDAO{
             
             return computador;
         } catch(Exception ex) {
+            System.out.println(ex.getMessage());
             return null;
         } 
     }

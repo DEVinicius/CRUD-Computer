@@ -23,7 +23,6 @@ public class ListAllComputersService {
     
     public List<Computador> execute() {
         List<Computador> listAll = this.computadorDAO.findAll();
-        System.out.println(listAll);
         return listAll;
     }
 }

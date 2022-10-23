@@ -24,7 +24,7 @@ public class UpdateComputerService {
         Computador computadorReq = new Computador(processador, hd);
         computadorReq.setId(id);
         
-        Computador computador = this.computadorDAO.create(computadorReq);
+        Computador computador = this.computadorDAO.update(computadorReq);
         
         return computador;
     }
