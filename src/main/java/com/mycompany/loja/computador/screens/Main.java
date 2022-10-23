@@ -9,6 +9,8 @@ import com.mycompany.loja.computador.services.DeleteComputerService;
 import com.mycompany.loja.computador.services.ListAllComputersService;
 import com.mycompany.loja.computador.services.ListComputersByProcessadorService;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,7 +28,7 @@ public class Main extends javax.swing.JFrame {
     private ListComputersByProcessadorService listComputersByProcessadorService;
     private DeleteComputerService deleteComputerService;
     
-    public Main() {
+    public Main() throws Exception {
         this.listAllComputersService = new ListAllComputersService();
         this.listComputersByProcessadorService = new ListComputersByProcessadorService();
         this.deleteComputerService = new DeleteComputerService();
@@ -95,7 +97,7 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        filterSearchButton.setText("jButton1");
+        filterSearchButton.setText("Pesquisar");
         filterSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filterSearchButtonActionPerformed(evt);
@@ -186,7 +188,12 @@ public class Main extends javax.swing.JFrame {
 
     private void cadastroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroButtonActionPerformed
         // TODO add your handling code here:
-        Insert insertPage = new Insert();
+        Insert insertPage = null;
+        try {
+            insertPage = new Insert();
+        } catch (Exception ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         insertPage.setVisible(true);
     }//GEN-LAST:event_cadastroButtonActionPerformed
 
@@ -284,7 +291,11 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                try {
+                    new Main().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

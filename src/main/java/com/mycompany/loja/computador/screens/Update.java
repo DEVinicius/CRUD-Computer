@@ -7,6 +7,8 @@ package com.mycompany.loja.computador.screens;
 import com.mycompany.loja.computador.models.Computador;
 import com.mycompany.loja.computador.services.FindComputerByIdService;
 import com.mycompany.loja.computador.services.UpdateComputerService;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,7 +25,7 @@ public class Update extends javax.swing.JFrame {
     private UpdateComputerService updateComputerService;
     private Computador computador;
     
-    public Update(int id) {
+    public Update(int id) throws Exception {
         initComponents();
         
         this.findComputerByIdService = new FindComputerByIdService();
@@ -165,7 +167,11 @@ public class Update extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Update(0).setVisible(true);
+                try {
+                    new Update(0).setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(Update.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
